@@ -1,0 +1,19 @@
+{
+  "name": "scrape",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "latest",
+    "express": "latest",
+    "express-handlebars": "^4.0.4",
+    "hbs": "^4.1.1",
+    "request": "latest"
+  }
+}
