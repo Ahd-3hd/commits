@@ -3,7 +3,7 @@ var fs = require("fs");
 var request = require("request");
 var cheerio = require("cheerio");
 var app = express();
-var port = process.env.PORT;
+var port = process.env.PORT || 3000;
 const path = require("path");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
