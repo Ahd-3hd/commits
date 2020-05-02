@@ -11,7 +11,10 @@ app.set("view engine", "hbs");
 app.get("/", function (req, resp) {
   const url = "https://github.com/Zeus3hd";
   let date = new Date();
-  console.log(date.getFullYear(), date.getMonth(), date.getDay());
+  let jointDate = `${date.getFullYear()}-0${
+    date.getMonth() + 1
+  }-0${date.getDate()}`;
+  console.log(jointDate);
   request(url, (err, res, html) => {
     if (!err) {
       var $ = cheerio.load(html);
@@ -20,12 +23,7 @@ app.get("/", function (req, resp) {
       let newArr = [];
       for (let x in arr) {
         if (arr[x].attribs) {
-          if (
-            arr[x].attribs["data-date"] ===
-            `${date.getFullYear()}-0${date.getMonth()}-0${date.getDay()}`
-          ) {
-            console.log(arr[x].attribs["data-date"]);
-            console.log(arr[x].attribs["data-count"]);
+          if (arr[x].attribs["data-date"] === `${jointDate}`) {
             let commitCount = arr[x].attribs["data-count"];
             let phrase = "";
             if (commitCount < 40) {
@@ -41,6 +39,7 @@ app.get("/", function (req, resp) {
         }
       }
     }
+    return;
   });
 });
 
