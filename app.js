@@ -3,6 +3,7 @@ var fs = require("fs");
 var request = require("request");
 var cheerio = require("cheerio");
 var app = express();
+var port = process.env.PORT;
 const path = require("path");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
@@ -43,8 +44,8 @@ app.get("/", function (req, resp) {
   });
 });
 
-app.listen("8081");
+app.listen(port);
 
-console.log("Magic happens on port 8081");
+console.log("Magic happens on port: ", port);
 
 exports = module.exports = app;
